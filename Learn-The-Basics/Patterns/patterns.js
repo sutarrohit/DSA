@@ -227,7 +227,6 @@ function reverseLetterTriangle(num) {
 }
 
 // 16: Alpha-Ramp Pattern
-
 function alphaRampPattern(num) {
   for (let i = 0; i < num; i++) {
     let characterCode = 65;
