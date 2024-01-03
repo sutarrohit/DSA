@@ -131,7 +131,6 @@ function diamondStarPattern(num) {
 }
 
 // 10: Half Diamond Star Pattern
-
 function halfDiamondStar(num) {
   for (let i = 0; i < num * 2; i++) {
     let result = "";
@@ -186,10 +185,8 @@ function crownPattern(num) {
 }
 
 //  13: Increasing Number Triangle Pattern
-
 function increaseNumberTriangle(num) {
   let number = 1;
-
   for (let i = 1; i <= num; i++) {
     let result = "";
     for (let j = 1; j <= i; j++) {
@@ -234,8 +231,143 @@ function alphaRampPattern(num) {
     for (let j = 0; j <= i; j++) {
       result += String.fromCharCode(characterCode + i);
     }
-
     console.log(...result);
+  }
+}
+
+// 17: Alpha-Hill Pattern
+function alphaHillPattern(num) {
+  for (let i = 0; i < num; i++) {
+    let result = "";
+
+    for (let j = 0; j < num - i - 1; j++) {
+      result += " ";
+    }
+
+    let characterCode = 65;
+    let breakpoint = (2 * i + 1) / 2;
+
+    for (let k = 1; k <= 2 * i + 1; k++) {
+      result += String.fromCharCode(characterCode);
+      if (k <= breakpoint) {
+        characterCode++;
+      } else {
+        characterCode--;
+      }
+    }
+
+    console.log(result);
+  }
+}
+
+// 18: Alpha-Triangle Pattern
+function alphaTrianglePattern(num) {
+  let characterCode = 69;
+  for (let i = 0; i < num; i++) {
+    let result = "";
+    for (let j = 0; j <= i; j++) {
+      result += String.fromCharCode(characterCode + j);
+    }
+    characterCode--;
+    console.log(...result);
+  }
+}
+
+// 19: Symmetric-Void Pattern
+
+function symmetricVoidPattern(num) {
+  // Upper half
+  for (let i = 0; i < num; i++) {
+    let result = "";
+    for (let k = 0; k < num - i; k++) {
+      result += "*";
+    }
+    for (let j = 0; j < i * 2; j++) {
+      result += " ";
+    }
+
+    for (let k = 0; k < num - i; k++) {
+      result += "*";
+    }
+    console.log(result);
+  }
+
+  // Lower half
+  for (let i = 1; i <= num; i++) {
+    let result = "";
+    for (let j = 0; j < i; j++) {
+      result += "*";
+    }
+
+    for (let k = 0; k < num * 2 - i * 2; k++) {
+      result += " ";
+    }
+
+    for (let j = 0; j < i; j++) {
+      result += "*";
+    }
+    console.log(result);
+  }
+}
+
+// 20: Symmetric-Butterfly Pattern
+function symmetricButterflyPattern(num) {
+  let spaces = 2 * num - 2;
+
+  for (let i = 1; i <= 2 * num - 1; i++) {
+    let start = i;
+    let result = "";
+
+    if (i > num) start = 2 * num - i;
+
+    for (let j = 1; j <= start; j++) {
+      result += "*";
+    }
+    for (let k = 1; k <= spaces; k++) {
+      result += " ";
+    }
+    for (let j = 1; j <= start; j++) {
+      result += "*";
+    }
+
+    console.log(result);
+
+    if (i < num) spaces -= 2;
+    else spaces += 2;
+  }
+}
+
+// 21: Hollow Rectangle Pattern
+function hollowRectanglePattern(num) {
+  for (let i = 0; i < num; i++) {
+    let result = "";
+    for (let j = 0; j < num; j++) {
+      if (i === 0 || i === num - 1 || j === 0 || j === num - 1) {
+        result += "*";
+      } else {
+        result += " ";
+      }
+    }
+
+    console.log(result);
+  }
+}
+
+// 22: The Number Pattern
+function theNumberPattern(num) {
+  for (let i = 0; i < 2 * num - 1; i++) {
+    let result = "";
+    for (let j = 0; j < 2 * num - 1; j++) {
+      let top = i;
+      let left = j;
+      let right = 2 * num - 2 - j;
+      let bottom = 2 * num - 2 - i;
+
+      result += `${
+        num - Math.min(Math.min(top, bottom), Math.min(left, right))
+      } `;
+    }
+    console.log(result);
   }
 }
 
@@ -254,4 +386,10 @@ function alphaRampPattern(num) {
 // increaseNumberTriangle(5);
 // increaseLetterTriangle(5);
 // reverseLetterTriangle(5);
-alphaRampPattern(5);
+// alphaRampPattern(5);
+// alphaTrianglePattern(5);
+// alphaHillPattern(5);
+// symmetricVoidPattern(10);
+// symmetricButterflyPattern(5);
+// hollowRectanglePattern(5);
+// theNumberPattern(4);
