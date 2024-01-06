@@ -393,3 +393,11 @@ function theNumberPattern(num) {
 // symmetricButterflyPattern(5);
 // hollowRectanglePattern(5);
 // theNumberPattern(4);
+
+import React from "react";
+
+const patterns = () => {
+  return <div>patterns</div>;
+};
+
+export default patterns;
